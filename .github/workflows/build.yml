@@ -44,6 +44,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
+          sudo apt upgrade
           sudo apt install -y \
             libwebkit2gtk-4.0-dev \
             build-essential \
@@ -74,7 +75,7 @@ jobs:
           toolchain: stable
       - name: Install dependencies
         run: |
-          brew install webkit2gtk
+          brew install webkitgtk
           npm install
       - name: Install Tauri CLI
         run: cargo install tauri-cli
