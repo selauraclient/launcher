@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="Rust">
+  <main>
+    <span class="text-center text-2xl font-bold mt-10 mb-4">
+      You can communicate with the rust backend
+    </span>
+    <Header />
+    <div
+      class="w-full items-center justify-center text-center flex flex-col mt-4 mb-10"
+      transition:animate="fade"
+    >
+      We can use the `invoke` function to call a rust function from javascript.
+    </div>
+    <div transition:animate="fade" class="flex gap-4">
+      <button
+        class="bg-neutral-800 px-4 py-2 text-sm rounded-lg hover:bg-neutral-700"
+        data-try-button
+      >
+        Try it ✨
+      </button>
+      <a
+        class="bg-neutral-800 px-4 py-2 text-sm rounded-lg hover:bg-neutral-700"
+        href="/"
+      >
+        Go back 🏠
+      </a>
+    </div>
+    <div class="text-orange-500 mt-10" id="rust-message"></div>
+    <script is:inline>
+      // access the pre-bundled global API functions
+      //   @ts-ignore
+      var { invoke } = window.__TAURI__.tauri;
+
+      // Add event listeners to fire confetti when a button is clicked.
+      document.querySelectorAll("[data-try-button]").forEach((button) => {
+        button.addEventListener("click", () => {
+          function tryIt() {
+            invoke("get_message")
+              // `invoke` returns a Promise
+              .then((res) => {
+                const tag = document.getElementById("rust-message");
+                if (tag) {
+                  tag.innerHTML = res;
+                }
+              });
+          }
+          tryIt();
+        });
+      });
+    </script>
+  </main>
+</Layout>

@@ -1,39 +1,66 @@
 {
-  "$schema": "https://schema.tauri.app/config/2",
-  "productName": "selaura-launcher",
-  "version": "0.1.0",
-  "identifier": "com.selauraclient.launcher",
   "build": {
-    "beforeDevCommand": "npm run dev",
-    "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "npm run build",
-    "frontendDist": "../build"
+    "beforeBuildCommand": "pnpm run build",
+    "beforeDevCommand": "pnpm run dev",
+    "devPath": "http://localhost:4321",
+    "distDir": "../dist",
+    "withGlobalTauri": true
   },
-  "app": {
-    "windows": [
-      {
-        "title": "Selaura Launcher",
-        "width": 800,
-        "height": 600,
-        "decorations": false,
-        "transparent": true
+  "package": {
+    "productName": "astro-tauri-tailwind",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.astrotauritailwind.dev",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
       }
-    ],
-    "macOSPrivateApi": true,
-    "withGlobalTauri": true,
+    },
     "security": {
       "csp": null
-    }
-  },
-  "bundle": {
-    "active": true,
-    "targets": "all",
-    "icon": [
-      "icons/32x32.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
-      "icons/icon.icns",
-      "icons/icon.ico"
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 600,
+        "resizable": true,
+        "title": "astro-tauri-tailwind",
+        "width": 800
+      }
     ]
   }
 }

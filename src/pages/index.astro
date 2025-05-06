@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <span class="text-center text-2xl font-bold mt-10 mb-4">
+      Welcome to the starter!
+    </span>
+    <Header />
+    <div
+      class="w-full items-center justify-center text-center flex flex-col mt-4 mb-10"
+      transition:animate="fade"
+    >
+      This app has two pages which you can navigate between. Click the button
+      below to go to another page.
+    </div>
+    <a
+      href="/other"
+      class="bg-neutral-800 px-4 py-2 text-sm rounded-lg hover:bg-neutral-700"
+    >
+      Let's go 🚀
+    </a>
+  </main>
+</Layout>
