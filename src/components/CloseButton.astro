@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+---
+
+<div class="close-button">
+    <button id="close">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>
+
+
+<script>
+    import { appWindow } from '@tauri-apps/api/window';
+    const closeButton = document.getElementById("close");
+
+    closeButton.addEventListener("click", async () => {
+        await appWindow.close();
+    });
+</script>
+
+<style>
+    #close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 2rem;
+        color: var(--text-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    #close i {
+        font-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        display: block;
+    }
+</style>

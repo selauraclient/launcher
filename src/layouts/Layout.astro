@@ -1,25 +1,116 @@
 ---
 import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
 interface Props {
-  title: string;
+    title: string;
+    description?: string;
+    img?: string;
+    redirect?: string;
 }
 
-const { title } = Astro.props;
+const { title, description, img, redirect } = Astro.props;
+
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<!doctype html>
+<script is:inline data-cfasync="false">
+    const theme = (() => {
+        if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+        ) {
+            return localStorage.getItem("theme") ?? "light";
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark";
+        }
+        return "light";
+    })();
+
+    if (theme === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+    } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
+
+    window.localStorage.setItem("theme", theme);
+</script>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <ViewTransitions />
-  </head>
-  <body>
-    <slot />
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        {
+            redirect ? (
+                <meta http-equiv="refresh" content={`0;url=${redirect}`} />
+            ) : null
+        }
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content={description ??
+                "Selaura Client: Free, open-source utility client for Minecraft: Bedrock Edition"}
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <title>{title ?? "Selaura Client"}</title>
+    </head>
+    <body class="flex flex-col min-h-screen w-full">
+        <Navbar />
+        <main class="flex-grow flex items-center selaura-main-content">
+            <slot />
+        </main>
+    </body>
 </html>
+
+<style is:global>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --selaura-light: #f2f1e3;
+        --selaura-dark: #222222;
+        --selaura-soft: rgba(0, 0, 0, 0.05);
+        --selaura-faint: rgba(0, 0, 0, 0.05);
+        --selaura-scrollbar-bg: rgba(0, 0, 0, 0.1);
+        --selaura-scrollbar-thumb: rgba(0, 0, 0, 0.3);
+
+        &[data-theme="dark"] {
+            --selaura-light: #222222;
+            --selaura-dark: #f2f1e3;
+            --selaura-soft: rgba(255, 255, 255, 0.05);
+            --selaura-faint: rgba(255, 255, 255, 0.1);
+            --selaura-scrollbar-bg: rgba(255, 255, 255, 0.1);
+            --selaura-scrollbar-thumb: rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    html {
+        scroll-behavior: smooth;
+        background: var(--selaura-light);
+        color: var(--selaura-dark);
+        width: 100%;
+        height: 100vh;
+        scrollbar-color: var(--selaura-scrollbar-thumb)
+            var(--selaura-scrollbar-bg);
+    }
+
+    body,
+    body > * {
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 500;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+    }
+
+    .selaura-main-content {
+        padding: 2rem 4rem;
+    }
+</style>
