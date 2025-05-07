@@ -3,17 +3,13 @@
     "beforeBuildCommand": "pnpm run build",
     "beforeDevCommand": "pnpm run dev",
     "devPath": "http://localhost:4321",
-    "distDir": "../dist",
-    "withGlobalTauri": true
+    "distDir": "../dist"
   },
   "package": {
-    "productName": "astro-tauri-tailwind",
-    "version": "0.1.0"
+    "productName": "selaura-launcher",
+    "version": "1.0.0"
   },
   "tauri": {
-    "allowlist": {
-      "all": false
-    },
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
@@ -29,7 +25,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.astrotauritailwind.dev",
+      "identifier": "com.selauraclient.launcher",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -40,7 +36,7 @@
       },
       "resources": [],
       "shortDescription": "",
-      "targets": "all",
+      "targets": ["all"],
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
@@ -58,9 +54,12 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "astro-tauri-tailwind",
+        "title": "Selaura Launcher",
         "width": 800
       }
-    ]
+    ],
+    "allowlist": {
+      "all": false
+    }
   }
 }
