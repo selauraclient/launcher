@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css');
+
+:root {
+	--selaura-light: #f2f1e3;
+	--selaura-dark: #222222;
+	--selaura-sidebar-border: #eae9e2;
+	--selaura-soft: rgba(0, 0, 0, 0.05);
+	--selaura-faint: rgba(0, 0, 0, 0.05);
+	--selaura-scrollbar-bg: rgba(0, 0, 0, 0.1);
+	--selaura-scrollbar-thumb: rgba(0, 0, 0, 0.3);
+
+	--buttons-background: #222222;
+	--close-button: #d34545;
+	--maximize-button: #45d364;
+	--minimize-button: #d3c545;
+}
+
+html[data-theme="dark"] {
+	--selaura-light: #222222;
+	--selaura-dark: #f2f1e3;
+	--selaura-sidebar: #181818;
+	--selaura-sidebar-border: rgba(255, 255, 255, 0.2);
+	--selaura-soft: rgba(255, 255, 255, 0.05);
+	--selaura-faint: rgba(255, 255, 255, 0.1);
+	--selaura-scrollbar-bg: rgba(255, 255, 255, 0.1);
+	--selaura-scrollbar-thumb: rgba(255, 255, 255, 0.4);
+}
+
+.logo {
+	width: 1em;
+	height: 1em;
+
+	mask-image: url(../assets/icon.svg);
+	-webkit-mask-image: url(../assets/icon.svg);
+
+	mask-size: 1em 1em;
+	-webkit-mask-size: 1em 1em;
+
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
+
+	background-color: var(--selaura-dark); /* fallback */
+	background: var(--selaura-dark);
+}
+
+
+#header {
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-color: var(--selaura-light);
+	color: var(--selaura-dark);
+	width: 100%;
+	height: 100%;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--selaura-dark);
+	border-radius: 4px;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	-webkit-box-sizing: border-box;
+}
+
+.topBar {
+	display: flex;
+	flex-direction: row;
+	background-color: var(--selaura-light);
+	-webkit-user-select: none;
+	padding: 0.5 0.25em;
+	width: 30%;
+}
+
+.topBar>.titleBar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	padding: 0 0.5em;
+	background: var(--selaura-sidebar);
+	border-right: solid 2px var(--selaura-sidebar-border);
+}
+
+.titleBar>.title {
+	width: 100%;
+	margin-top: 5px;
+	margin-left: 5px;
+	padding-bottom: 5px;
+	font-weight: 500;
+	font-size: 13px;
+	-webkit-app-region: drag;
+}
+
+.titleBarBtns {
+	display: flex;
+	position: fixed;
+	flex-direction: row;
+	align-items: center;
+	justify-content: right;
+	width: 100%;
+	padding: 8px;
+	gap: 8px;
+}
+
+.titleBarBtns>.topBtn {
+	width: 15px;
+	align-items: center;
+	justify-content: center;
+	height: 15px;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	background-color: var(--selaura-soft);
+	border-radius: 50%;
+	transition: all .2s;
+}
+
+.minimizeBtn:hover {
+	background-color: var(--minimize-button);
+}
+
+.maximizeBtn:hover {
+	background-color: var(--maximize-button);
+}
+.closeBtn:hover {
+	background-color: var(--close-button);
+}
+
+.mainApp {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	width: 100%;
+	height: calc(100vh - 30px);
+}
+
+.sidebar {
+	width: 30%;
+	height: 100%;
+	background: var(--selaura-sidebar);
+	border-right: solid 2px var(--selaura-sidebar-border);
+}
+
+.main {
+	width: 70%;
+}

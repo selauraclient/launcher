@@ -1,28 +1,56 @@
 {
-    "name": "selaura-launcher",
-    "type": "module",
-    "version": "1.0.0",
-    "scripts": {
-        "dev": "astro dev",
-        "start": "astro dev",
-        "build": "astro build",
-        "preview": "astro preview",
-        "format:frontend": "prettier --ignore-path ./.prettierignore --write \"**/*.+(js|jsx|tsx|ts|astro|json)\"",
-        "format:rust": "cd src-tauri && cargo fmt && cd ..",
-        "format": "pnpm run format:frontend && pnpm run format:rust",
-        "astro": "astro",
-        "tauri": "tauri"
-    },
-    "dependencies": {
-        "@astrojs/tailwind": "^5.0.0",
-        "@tauri-apps/api": "^1.5.0",
-        "@tauri-apps/cli": "^1.5.1",
-        "astro": "^3.2.2",
-        "tailwindcss": "^3.4.17"
-    },
-    "devDependencies": {
-        "prettier": "^3.0.3",
-        "prettier-plugin-astro": "^0.12.0",
-        "prettier-plugin-rust": "^0.1.9"
-    }
+	"name": "launcher",
+	"productName": "Selaura Launcher",
+	"version": "1.0.0",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "electron-forge start",
+		"package": "electron-forge package",
+		"make": "electron-forge make",
+		"publish": "electron-forge publish",
+		"lint": "echo \"No linting configured\""
+	},
+	"keywords": [],
+	"author": "notchyves",
+	"license": "MIT",
+	"config": {
+		"forge": {
+			"packagerConfig": {},
+			"makers": [
+				{
+					"name": "@electron-forge/maker-squirrel",
+					"config": {
+						"name": "Selaura Launcher"
+					}
+				},
+				{
+					"name": "@electron-forge/maker-zip",
+					"platforms": [
+						"darwin"
+					]
+				},
+				{
+					"name": "@electron-forge/maker-deb",
+					"config": {}
+				},
+				{
+					"name": "@electron-forge/maker-rpm",
+					"config": {}
+				}
+			]
+		}
+	},
+	"dependencies": {
+		"@electron/remote": "^2.0.8",
+		"discord-rpc-electron": "^4.0.2",
+		"electron-squirrel-startup": "^1.0.0"
+	},
+	"devDependencies": {
+		"@electron-forge/cli": "^6.0.0-beta.65",
+		"@electron-forge/maker-deb": "^6.0.0-beta.65",
+		"@electron-forge/maker-rpm": "^6.0.0-beta.65",
+		"@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+		"@electron-forge/maker-zip": "^6.0.0-beta.65",
+		"electron": "19.0.9"
+	}
 }
