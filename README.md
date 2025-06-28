@@ -1,31 +1,38 @@
-<h1 align="center">
-Selaura Launcher
-</h1>
-<p align="center">
- <a href="https://selauraclient.com/discord" target="_blank">Discord</a>
- •
- <a href="https://selauraclient.com/" target="_blank">Website</a>
- •
- <a href="https://docs.selauraclient.com/" target="_blank">Scripting Documentation</a>
-</p>
+# Tauri + Astro
 
-This repository contains the full source code for the Desktop Selaura Launcher. This launcher helps run [Selaura Client](https://selauraclient.com/), which is the best modification for Minecraft: Bedrock Edition.
+This template should help get you started developing with Tauri and Astro.
 
-## 🖥️ Compatibility
-Selaura Launcher (Desktop) currently supports:
-- Windows 10/11
-- MacOS
-- Linux
+![App Screenshot](./Screenshot-light.png#gh-light-mode-only)
+![App Screenshot](./Screenshot-dark.png#gh-dark-mode-only)
 
-For Android support use the [Selaura Android Launcher](https://github.com/selauraclient/android-launcher).
+## Getting started
 
-## ✨ Open Source Technologies Used
-- [tauri-apps/tauri](https://github.com/tauri-apps/tauri)
-- [withastro/astro](https://github.com/withastro/astro)
-- [tailwindlabs/tailwindcss](https://github.com/tailwindlabs/tailwindcss)
+First, make sure you have completed the [prerequisites](https://beta.tauri.app/guides/prerequisites/) to have a working development environment.
 
-## 📈 Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=selauraclient/launcher&type=Date)](https://www.star-history.com/#selauraclient/launcher&Date)
+Then install the dependencies using the package manager of your choice:
 
-## 📄 License
-Selaura Launcher currently falls under the [GPL-3.0 License](LICENSE). Feel free to use this code as a fork in your own project. Thank you!
+```bash
+npm install
+# OR
+pnpm install
+```
+
+Then to get started run:
+
+```bash
+npm run tauri dev
+# OR
+pnpm tauri dev
+```
+
+to build your app run
+
+```bash
+npm run tauri build
+# OR
+pnpm tauri build
+```
+
+## Recommended IDE Setup
+
+[VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).

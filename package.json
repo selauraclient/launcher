@@ -1,56 +1,24 @@
 {
-	"name": "launcher",
-	"productName": "Selaura Launcher",
-	"version": "1.0.0",
-	"main": "src/index.js",
-	"scripts": {
-		"start": "electron-forge start",
-		"package": "electron-forge package",
-		"make": "electron-forge make",
-		"publish": "electron-forge publish",
-		"lint": "echo \"No linting configured\""
-	},
-	"keywords": [],
-	"author": "notchyves",
-	"license": "MIT",
-	"config": {
-		"forge": {
-			"packagerConfig": {},
-			"makers": [
-				{
-					"name": "@electron-forge/maker-squirrel",
-					"config": {
-						"name": "Selaura Launcher"
-					}
-				},
-				{
-					"name": "@electron-forge/maker-zip",
-					"platforms": [
-						"darwin"
-					]
-				},
-				{
-					"name": "@electron-forge/maker-deb",
-					"config": {}
-				},
-				{
-					"name": "@electron-forge/maker-rpm",
-					"config": {}
-				}
-			]
-		}
-	},
-	"dependencies": {
-		"@electron/remote": "^2.0.8",
-		"discord-rpc-electron": "^4.0.2",
-		"electron-squirrel-startup": "^1.0.0"
-	},
-	"devDependencies": {
-		"@electron-forge/cli": "^6.0.0-beta.65",
-		"@electron-forge/maker-deb": "^6.0.0-beta.65",
-		"@electron-forge/maker-rpm": "^6.0.0-beta.65",
-		"@electron-forge/maker-squirrel": "^6.0.0-beta.65",
-		"@electron-forge/maker-zip": "^6.0.0-beta.65",
-		"electron": "19.0.9"
-	}
+  "name": "selaura-launcher",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/solid-js": "^4.1.0",
+    "@playform/compress": "^0.0.3",
+    "@playform/inline": "^0.0.2",
+    "@tauri-apps/api": ">=2.0.0-beta.0",
+    "@tauri-apps/cli": ">=2.0.0-beta.0",
+    "astro": "^4.6.0",
+    "solid-js": "^1.8.16",
+    "typescript": "^5.4.5"
+  }
 }
